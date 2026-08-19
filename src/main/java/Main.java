@@ -26,5 +26,6 @@ public class Main {
             current = lineup.get(i);
             System.out.println(current.getName() + " " + current.getPos() + " #" + current.getNum());
         }
+        System.out.println("test complete");
     }
 }
