@@ -1,11 +1,11 @@
 package teamdata;
 
 public class Player {
-    private String name;
-    private Position position;
-    private int number;
+    private final String name;
+    private final Position position;
+    private final int number;
 
-    public Player (String name, Position pos, int num) {
+    public Player(String name, Position pos, int num) {
         this.name = name;
         this.position = pos;
         this.number = num;
