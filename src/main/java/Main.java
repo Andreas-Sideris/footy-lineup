@@ -19,8 +19,7 @@ public class Main {
         nums.add(16);
         nums.add(20);
 
-        builder.readLineupNums(nums);
-        List<Player> lineup = builder.getLineup();
+        List<Player> lineup = builder.readLineupNums(nums);
         Player current;
         for (int i = 0; i < lineup.size(); i++) {
             current = lineup.get(i);
