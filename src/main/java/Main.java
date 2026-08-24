@@ -20,9 +20,14 @@ public class Main {
         nums.add(20);
 
         List<Player> lineup = builder.readLineupNums(nums);
+        Player[] newLineup = builder.buildFormation(lineup);
         Player current;
         for (int i = 0; i < lineup.size(); i++) {
             current = lineup.get(i);
+            System.out.println(current.getName() + " " + current.getPos() + " #" + current.getNum());
+        }
+        for (int i = 0; i < newLineup.length; i++) {
+            current = newLineup[i];
             System.out.println(current.getName() + " " + current.getPos() + " #" + current.getNum());
         }
         System.out.println("test complete");

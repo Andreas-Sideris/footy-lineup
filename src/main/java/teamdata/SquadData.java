@@ -26,14 +26,14 @@ public class SquadData {
 
         // Midfielders
         squad.put(14, new Player("Archie Gray", Position.CDM, 14));
-        squad.put(16, new Player("Sandro Tonali", Position.CM, 16));
+        squad.put(16, new Player("Sandro Tonali", Position.CDM, 16));
         squad.put(7, new Player("Xavi Simons", Position.CAM, 7));
         squad.put(10, new Player("James Maddison", Position.CAM, 10));
         squad.put(15, new Player("Lucas Bergvall", Position.CM, 15));
         squad.put(21, new Player("Dejan Kulusevski", Position.CAM, 21));
         squad.put(29, new Player("Pape Matar Sarr", Position.CM, 29));
-        squad.put(30, new Player("Rodrigo Bentancur", Position.CM, 30));
-        squad.put(18, new Player("Mateus Fernandes", Position.CM, 18));
+        squad.put(30, new Player("Rodrigo Bentancur", Position.CDM, 30));
+        squad.put(18, new Player("Mateus Fernandes", Position.CDM, 18));
         squad.put(8, new Player("Conor Gallagher", Position.CM, 8));
 
         // Forwards
