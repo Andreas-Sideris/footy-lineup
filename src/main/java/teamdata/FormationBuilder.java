@@ -28,15 +28,21 @@ public class FormationBuilder {
     }
 
     public Player[] buildFormation(List<Player> lineupIn) {
+        Set<Player> remainingPlayers = new HashSet<>(lineupIn);
+
         Player current;
+
+
         for (int i = 0; i < lineupIn.size(); i++) {
             current = lineupIn.get(i);
             switch (current.getPos()) {
                 case GK -> {
                     correctLineup[0] = current;
+                    remainingPlayers.remove(current);
                 }
                 case LB -> {
                     correctLineup[1] = current;
+                    remainingPlayers.remove(current);
                 }
                 case CB -> {
                     if (correctLineup[2] == null) {
