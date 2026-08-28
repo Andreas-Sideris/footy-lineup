@@ -5,7 +5,6 @@ import java.util.*;
 public class FormationBuilder {
 
     private SquadData spursSquad;
-    private List<Player> numOrderLineup;
     private Player[] correctLineup;
 
     public FormationBuilder() {
@@ -14,7 +13,7 @@ public class FormationBuilder {
     }
 
     public List<Player> readLineupNums(List<Integer> lineupIn) {
-        numOrderLineup = new ArrayList<Player>();
+        List<Player> numOrderLineup = new ArrayList<Player>();
         Player current;
         Integer num;
 
@@ -44,71 +43,72 @@ public class FormationBuilder {
                     correctLineup[1] = current;
                     remainingPlayers.remove(current);
                 }
-                case CB -> {
-                    if (correctLineup[2] == null) {
-                        correctLineup[2] = current;
-                    } else {
-                        correctLineup[3] = current;
-                    }
-                }
                 case RB -> {
                     correctLineup[4] = current;
+                    remainingPlayers.remove(current);
                 }
                 case CAM -> {
-                    correctLineup[8] = current;
-                }
-                case CDM -> {
-                    if (current.getNum() != 14) {
-                        if (correctLineup[5] == null) {
-                            correctLineup[5] = current;
-                        } else {
-                            correctLineup[6] = current;
-                        }
-                    }
+                    correctLineup[6] = current;
+                    remainingPlayers.remove(current);
                 }
                 case ST -> {
-                    correctLineup[10] = current;
+                    correctLineup[9] = current;
+                    remainingPlayers.remove(current);
                 }
                 case LW -> {
-                    correctLineup[7] = current;
+                    correctLineup[8] = current;
+                    remainingPlayers.remove(current);
                 }
                 case RW -> {
-                    correctLineup[9] = current;
+                    correctLineup[10] = current;
+                    remainingPlayers.remove(current);
                 }
             }
         }
-        Player gray = spursSquad.getPlayer(14);
-        if (lineupIn.contains(gray)) {
-            if (correctLineup[4] == null) {
-                correctLineup[4] = gray;
-            }
-            else {
-                if (correctLineup[5] == null) {
-                    correctLineup[5] = gray;
-                } else {
-                    correctLineup[6] = gray;
-                }
-            }
-        }
-        for (int i = 0; i < lineupIn.size(); i++) {
-            current = lineupIn.get(i);
-            if (current.getPos() == Position.CM) {
-                if (correctLineup[8] == null) {
-                    correctLineup[8] = current;
-                }
-                else if (correctLineup[5] == null) {
-                    correctLineup[5] = current;
-                }
-                else {
-                    correctLineup[6] = current;
-                }
-            }
-        }
+
+        fillEmptySecondPos(4, remainingPlayers, Position.RB);
+
+        fillEmptySecondPos(1, remainingPlayers, Position.LB);
+
+        fillEmptyMainPos(2, remainingPlayers, Position.CB);
+
+        fillEmptyMainPos(3, remainingPlayers, Position.CB);
+
+        fillEmptyMainPos(5, remainingPlayers, Position.CDM);
+
+        fillEmptyMainPos(7, remainingPlayers, Position.CDM);
+
+        fillEmptySecondPos(6, remainingPlayers, Position.CAM);
+
+        fillEmptyMainPos(5, remainingPlayers, Position.CM);
+
+        fillEmptyMainPos(7, remainingPlayers, Position.CM);
+
 
         return correctLineup;
     }
 
-    public List<Player> getNumOrderLineup() {
-        return numOrderLineup;
+    private void fillEmptySecondPos(int index, Set<Player> remainingPlayers, Position pos) {
+        if (correctLineup[index] == null) {
+            for (Player p : remainingPlayers) {
+                if (p.getSecondPos() == pos) {
+                    correctLineup[index] = p;
+                    remainingPlayers.remove(p);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void fillEmptyMainPos(int index, Set<Player> remainingPlayers, Position pos) {
+        if (correctLineup[index] == null) {
+            for (Player p : remainingPlayers) {
+                if (p.getPos() == pos) {
+                    correctLineup[index] = p;
+                    remainingPlayers.remove(p);
+                    break;
+                }
+            }
+        }
     }
 }

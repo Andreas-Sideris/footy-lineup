@@ -26,9 +26,13 @@ public class Main {
             current = lineup.get(i);
             System.out.println(current.getName() + " " + current.getPos() + " #" + current.getNum());
         }
+        System.out.println("###############################");
+        System.out.println("Fixed Lineup:");
         for (int i = 0; i < newLineup.length; i++) {
-            current = newLineup[i];
-            System.out.println(current.getName() + " " + current.getPos() + " #" + current.getNum());
+            if (newLineup[i] != null) {
+                current = newLineup[i];
+                System.out.println(current.getName() + " " + current.getPos() + " #" + current.getNum());
+            }
         }
         System.out.println("test complete");
     }

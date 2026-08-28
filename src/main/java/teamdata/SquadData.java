@@ -31,7 +31,7 @@ public class SquadData {
         squad.put(10, new Player("James Maddison", Position.CAM, 10));
         squad.put(15, new Player("Lucas Bergvall", Position.CM, Position.CAM, 15));
         squad.put(21, new Player("Dejan Kulusevski", Position.CAM, 21));
-        squad.put(29, new Player("Pape Matar Sarr", Position.CM, 29));
+        squad.put(29, new Player("Pape Matar Sarr", Position.CDM, 29));
         squad.put(30, new Player("Rodrigo Bentancur", Position.CDM, 30));
         squad.put(18, new Player("Mateus Fernandes", Position.CDM, 18));
         squad.put(8, new Player("Conor Gallagher", Position.CM, Position.CAM, 8));
@@ -43,6 +43,9 @@ public class SquadData {
         squad.put(28, new Player("Wilson Odobert", Position.LW, 28));
         squad.put(11, new Player("Mathys Tel", Position.LW, 11));
         squad.put(44, new Player("Dane Scarlett", Position.ST, 44));
+        squad.put(17, new Player("Savio", Position.LW, 17));
+        squad.put(22, new Player("Omar Marmoush", Position.ST, 22));
+        squad.put(47, new Player("Mikey Moore", Position.RW, 47));
     }
 
     public Player getPlayer(int num) {
